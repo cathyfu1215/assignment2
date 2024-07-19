@@ -38,6 +38,23 @@ export default styles = StyleSheet.create({
       flexDirection: 'row',
       justifyContent: 'center',
     },
+    itemlistline: {
+      flexDirection: 'row',
+      padding: 5,
+      margin: 5,
+      backgroundColor: 'lightgrey',
+      borderRadius: 5,
+      textAlign: 'center',
+      fontWeight: 'bold',
+      justifyContent: 'space-between',
+      alignContent: 'center',
+    },
+    itemContainer: {
+      flex: 1,
+      backgroundColor: '#fff',
+      alignItems: 'center',
+      justifyContent: 'start',
+    },
     
   });
   

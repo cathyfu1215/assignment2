@@ -7,14 +7,17 @@ import ItemsList from '../Components/ItemsList.js'
 import styles from '../styleHelper.js'
 
 function Diet() {
-  const [diets, setDiets] = useState([{id:1, text:"diet1"}, {id:2, text:"diet2"}]);
+  //I put some examples in the state so the testing is easier
+  const [diets, setDiets] = useState([{id:1, text:"Breakfast", calories: 1000, date:"Fri 2024-07-19"},
+    {id:2, text:"Lunch", calories: 700, date:"Sat 2024-07-20"}
+  ]);
   
     const renderItem = (items) => {
       return <ItemsList items={items} route={props.route} />;
     };
   
     return (
-      <SafeAreaView style={styles.container}>
+      <SafeAreaView style={styles.itemContainer}>
         <ItemsList type="diet" data={diets}/>
       </SafeAreaView>
     );
