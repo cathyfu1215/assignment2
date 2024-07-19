@@ -13,5 +13,16 @@ export default styles = StyleSheet.create({
       alignItems: 'center',
       justifyContent: 'center',
     },
+    button:{
+      backgroundColor: 'blue',
+      padding: 10,
+      margin: 10,
+      borderRadius: 5,
+      alignItems: 'center',
+      alignSelf: 'center',
+    },
+    buttonText:{
+      color: 'white',
+    },
   });
   
