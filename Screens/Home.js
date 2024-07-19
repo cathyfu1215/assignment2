@@ -11,21 +11,25 @@ import AddEntryButton from '../Components/AddEntryButton.js';
 import { View } from 'react-native';
 import styles from '../styleHelper.js';
 import { FontAwesome6 } from '@expo/vector-icons';
+import { useState } from 'react';
 
 
 
 const Tab = createBottomTabNavigator();
 
 function Home() {
+  const [theme, setTheme] = useState('white');
 
-  function AddActivityComponent(props) {
-    return (
-      <View style={styles.addEntryView}>
-        <FontAwesome6 name="plus" size={24} color="black" />
-        <FontAwesome5 name="running" size={24} color="black" />
-      </View>
-    );
+  function toggleTheme(){
+    if(theme === 'white'){
+      setTheme('wheat');
+      console.log('theme changed to wheat');
+    } else {
+      setTheme('white');
+      console.log('theme changed to white');
+    }
   }
+
 
 
   return (
@@ -55,11 +59,11 @@ function Home() {
         
       />
       <Tab.Screen 
-        name="Setting" 
-        component={Setting}
-        options={({ navigation }) => ({
+          name="Setting" 
+          component={(props) => <Setting {...props} toggleTheme={toggleTheme} />}
+          options={({ navigation }) => ({
           tabBarButton: (props) => <MyTabButton {...props} navigation={navigation} name="Setting" logo={<Feather name="settings" size={24} color="black" />}/>
-        })}
+          })}
       />
     </Tab.Navigator>
   )
