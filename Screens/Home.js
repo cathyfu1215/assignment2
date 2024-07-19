@@ -8,6 +8,9 @@ import { FontAwesome5 } from '@expo/vector-icons';
 import { Feather } from '@expo/vector-icons';
 import { Ionicons } from '@expo/vector-icons';
 import AddEntryButton from '../Components/AddEntryButton.js';
+import { View } from 'react-native';
+import styles from '../styleHelper.js';
+import { FontAwesome6 } from '@expo/vector-icons';
 
 
 
@@ -15,6 +18,14 @@ const Tab = createBottomTabNavigator();
 
 function Home() {
 
+  function AddActivityComponent(props) {
+    return (
+      <View style={styles.addEntryView}>
+        <FontAwesome6 name="plus" size={24} color="black" />
+        <FontAwesome5 name="running" size={24} color="black" />
+      </View>
+    );
+  }
 
 
   return (
@@ -24,7 +35,11 @@ function Home() {
         component={Activities} 
         options={({ navigation, route }) => ({
           tabBarButton: (props) => <MyTabButton {...props} navigation={navigation} name="Activities" logo={<FontAwesome5 name="running" size={24} color="black" />} />,
-          headerRight:()=> {return  <AddEntryButton type="AddAnActivity" name="add act" navigation= {navigation} route={route} />},
+          headerRight:()=> {return  <AddEntryButton type="AddAnActivity" 
+          name={<View style={styles.addEntryView}>
+          <FontAwesome6 name="plus" size={24} color="black" />
+          <FontAwesome5 name="running" size={24} color="black" />
+        </View>} navigation= {navigation} route={route} />},
         })}
       />
       <Tab.Screen 
@@ -32,7 +47,10 @@ function Home() {
         component={Diet}
         options={({ navigation,route  }) => ({
           tabBarButton: (props) => <MyTabButton {...props} navigation={navigation} name="Diet" logo={<Ionicons name="fast-food-outline" size={24} color="black" />}/>,
-          headerRight:()=> {return  <AddEntryButton type="AddADietEntry" name="add diet" navigation= {navigation} route={route} />},
+          headerRight:()=> {return  <AddEntryButton type="AddADietEntry" name={<View style={styles.addEntryView}>
+          <FontAwesome6 name="plus" size={24} color="black" />
+          <Ionicons name="fast-food-outline" size={24} color="black" />
+          </View>} navigation= {navigation} route={route} />},
         })}
         
       />

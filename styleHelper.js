@@ -14,12 +14,13 @@ export default styles = StyleSheet.create({
       justifyContent: 'center',
     },
     button:{
-      backgroundColor: 'blue',
+      backgroundColor: 'lightgrey',
       borderRadius: 5,
       alignItems: 'center',
       alignSelf: 'center',
       margin:5,
       padding:5,
+      marginRight:10,
     },
     buttonText:{
       color: 'white',
@@ -32,6 +33,10 @@ export default styles = StyleSheet.create({
       marginLeft:40,
       marginRight:40,
       marginTop:5,
+    },
+    addEntryView: {
+      flexDirection: 'row',
+      justifyContent: 'center',
     },
     
   });
