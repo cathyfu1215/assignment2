@@ -18,6 +18,8 @@ export default styles = StyleSheet.create({
       borderRadius: 5,
       alignItems: 'center',
       alignSelf: 'center',
+      margin:5,
+      padding:5,
     },
     buttonText:{
       color: 'white',
@@ -31,5 +33,6 @@ export default styles = StyleSheet.create({
       marginRight:40,
       marginTop:5,
     },
+    
   });
   

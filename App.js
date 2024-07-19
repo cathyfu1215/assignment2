@@ -13,8 +13,15 @@ export default function App() {
   return (
     <NavigationContainer>
      <Stack.Navigator>
-      <Stack.Screen name="Home" component={Home}/>
-      <Stack.Screen name="AddAnActivity" component={AddAnActivity}/>
+      <Stack.Screen name="Home" component={Home}
+       options={{headerShown: false}}/>
+
+      <Stack.Screen name="AddAnActivity" component={AddAnActivity}
+//       options={({ navigation, route }) => ({ title: route.params.text, 
+//         headerRight:()=> {return  <AddEntryButton navigation= {navigation} route={route} />},
+// })}
+
+/>
       <Stack.Screen name="AddADietEntry" component={AddADietEntry}/>
       <Stack.Screen name="Edit" component={Edit}/>
     

@@ -7,6 +7,7 @@ import MyTabButton from '../Components/MyTabButton.js';
 import { FontAwesome5 } from '@expo/vector-icons';
 import { Feather } from '@expo/vector-icons';
 import { Ionicons } from '@expo/vector-icons';
+import AddEntryButton from '../Components/AddEntryButton.js';
 
 
 
@@ -21,16 +22,19 @@ function Home() {
       <Tab.Screen 
         name="Activities" 
         component={Activities} 
-        options={({ navigation }) => ({
-          tabBarButton: (props) => <MyTabButton {...props} navigation={navigation} name="Activities" logo={<FontAwesome5 name="running" size={24} color="black" />} />
+        options={({ navigation, route }) => ({
+          tabBarButton: (props) => <MyTabButton {...props} navigation={navigation} name="Activities" logo={<FontAwesome5 name="running" size={24} color="black" />} />,
+          headerRight:()=> {return  <AddEntryButton name="add act" navigation= {navigation} route={route} />},
         })}
       />
       <Tab.Screen 
         name="Diet" 
         component={Diet}
-        options={({ navigation }) => ({
-          tabBarButton: (props) => <MyTabButton {...props} navigation={navigation} name="Diet" logo={<Ionicons name="fast-food-outline" size={24} color="black" />}/>
+        options={({ navigation,route  }) => ({
+          tabBarButton: (props) => <MyTabButton {...props} navigation={navigation} name="Diet" logo={<Ionicons name="fast-food-outline" size={24} color="black" />}/>,
+          headerRight:()=> {return  <AddEntryButton name="add diet" navigation= {navigation} route={route} />},
         })}
+        
       />
       <Tab.Screen 
         name="Setting" 
