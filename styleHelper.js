@@ -15,14 +15,20 @@ export default styles = StyleSheet.create({
     },
     button:{
       backgroundColor: 'blue',
-      padding: 10,
-      margin: 10,
       borderRadius: 5,
       alignItems: 'center',
       alignSelf: 'center',
     },
     buttonText:{
       color: 'white',
+    },
+    tabButtonContainer: {
+      flexDirection: 'column',
+      justifyContent: 'center',
+      alignItems: 'center',
+      alignSelf: 'center',
+      marginLeft:10,
+      marginTop:5,
     },
   });
   
