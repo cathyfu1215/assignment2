@@ -1,7 +1,5 @@
-import { StatusBar } from 'expo-status-bar';
-import { Text, View } from 'react-native';
+
 import React from 'react';
-import styles from './styleHelper.js';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import AddAnActivity from './Screens/AddAnActivity.js';

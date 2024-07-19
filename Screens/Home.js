@@ -1,5 +1,4 @@
-import React from 'react'
-import { View, Text } from 'react-native'
+import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Diet from './Diet.js';
 import Activities from './Activities.js';
