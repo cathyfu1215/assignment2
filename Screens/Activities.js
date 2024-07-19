@@ -15,7 +15,7 @@ function Activities(props) {
   
     return (
       <SafeAreaView style={styles.container}>
-        <ItemsList data={activities}/>
+        <ItemsList type="activity" data={activities}/>
       </SafeAreaView>
     );
 }
