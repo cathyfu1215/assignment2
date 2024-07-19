@@ -3,8 +3,8 @@ import { Text, FlatList,SafeAreaView } from 'react-native'
 
 
 function ItemsList({type, data}) {
-  console.log('type from a page:', type);
-  console.log('data from a page:', data);
+  // console.log('type from a page:', type);
+  // console.log('data from a page:', data);
   return (
     <SafeAreaView>
       <Text>{type}</Text>

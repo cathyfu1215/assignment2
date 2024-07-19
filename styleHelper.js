@@ -27,7 +27,8 @@ export default styles = StyleSheet.create({
       justifyContent: 'center',
       alignItems: 'center',
       alignSelf: 'center',
-      marginLeft:10,
+      marginLeft:40,
+      marginRight:40,
       marginTop:5,
     },
   });
