@@ -24,7 +24,7 @@ function Home() {
         component={Activities} 
         options={({ navigation, route }) => ({
           tabBarButton: (props) => <MyTabButton {...props} navigation={navigation} name="Activities" logo={<FontAwesome5 name="running" size={24} color="black" />} />,
-          headerRight:()=> {return  <AddEntryButton name="add act" navigation= {navigation} route={route} />},
+          headerRight:()=> {return  <AddEntryButton type="AddAnActivity" name="add act" navigation= {navigation} route={route} />},
         })}
       />
       <Tab.Screen 
@@ -32,7 +32,7 @@ function Home() {
         component={Diet}
         options={({ navigation,route  }) => ({
           tabBarButton: (props) => <MyTabButton {...props} navigation={navigation} name="Diet" logo={<Ionicons name="fast-food-outline" size={24} color="black" />}/>,
-          headerRight:()=> {return  <AddEntryButton name="add diet" navigation= {navigation} route={route} />},
+          headerRight:()=> {return  <AddEntryButton type="AddADietEntry" name="add diet" navigation= {navigation} route={route} />},
         })}
         
       />
