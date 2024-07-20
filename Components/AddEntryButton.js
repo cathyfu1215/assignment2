@@ -4,6 +4,8 @@ import styles from '../styleHelper.js';
 import PressableButton from './PressableButton';
 
 
+/* This button is for either add an entry to activity or diet */
+
 function AddEntryButton(props) {
   function handleAddEntry(){
  

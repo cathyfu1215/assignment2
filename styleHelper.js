@@ -77,6 +77,36 @@ export default styles = StyleSheet.create({
       justifyContent: 'space-between',
       width:'97%',
     },
+    saveCancelContainer:{
+      flexDirection: 'row',
+      justifyContent: 'center',
+      margin: 10,
+      width: '100%',
+    },
+    saveButton:{
+      backgroundColor: 'lightblue',
+      borderRadius: 10,
+      alignItems: 'center',
+      alignSelf: 'center',
+      margin:30,
+      padding:5,
+      width: '30%',
+      
+    },
+    cancelButton:{
+      backgroundColor: 'lightpink',
+      borderRadius: 10,
+      alignItems: 'center',
+      alignSelf: 'center',
+      margin:30,
+      padding:5,
+      width: '30%',
+    },
+    cancelButtonText:{
+      color: 'black',
+      fontWeight: 'bold',
+      fontSize: 20,
+    },
     
   });
   

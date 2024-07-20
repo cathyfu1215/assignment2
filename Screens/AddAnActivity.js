@@ -7,6 +7,8 @@ import { TextInput } from 'react-native';
 import DateTimePicker from '@react-native-community/datetimepicker';
 import PressableButton from '../Components/PressableButton.js';
 import { Pressable } from 'react-native';
+import SaveButton from '../Components/SaveButton.js';
+import CancelButton from '../Components/CancelButton.js';
 
 function AddAnActivity() {
 
@@ -85,6 +87,10 @@ function AddAnActivity() {
           onChange={onChange}
         />
       )}
+    </View>
+    <View style={styles.saveCancelContainer}>
+      <CancelButton/>
+      <SaveButton/>
     </View>
     
     </View>
