@@ -107,6 +107,17 @@ export default styles = StyleSheet.create({
       fontWeight: 'bold',
       fontSize: 20,
     },
+    textInputBig:{
+      height: 40,
+      borderColor: 'black',
+      borderWidth: 1,
+      margin: 5,
+      borderRadius: 10,
+      justifyContent: 'space-between',
+      width:'97%',
+      height: '30%',
+    },
+   
     
   });
   
