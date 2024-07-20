@@ -59,12 +59,23 @@ export default styles = StyleSheet.create({
       flex: 1,
       alignItems: 'left',
       justifyContent: 'start',
-      margin: 20,
+      margin: 10,
+      alignContent: 'center',
+      justifyContent: 'start',
     },
     addEntryText:{
       fontSize: 15,
       color: 'black',
       margin: 10,
+    },
+    textInput:{
+      height: 40,
+      borderColor: 'black',
+      borderWidth: 1,
+      margin: 5,
+      borderRadius: 10,
+      justifyContent: 'space-between',
+      width:'97%',
     },
     
   });
