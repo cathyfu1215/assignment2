@@ -55,6 +55,17 @@ export default styles = StyleSheet.create({
       alignItems: 'center',
       justifyContent: 'start',
     },
+    addEntryContainer: {
+      flex: 1,
+      alignItems: 'left',
+      justifyContent: 'start',
+      margin: 20,
+    },
+    addEntryText:{
+      fontSize: 15,
+      color: 'black',
+      margin: 10,
+    },
     
   });
   
