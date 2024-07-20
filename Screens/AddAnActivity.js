@@ -12,7 +12,7 @@ function AddAnActivity() {
 
   /* below are code for the dropdown picker */
   const [open, setOpen] = useState(false);
-  const [value, setValue] = useState(null);
+  const [activityName, setActivityName] = useState(null);
   const [items, setItems] = useState([
     {label: 'Walking', value: 'Walking'},
     {label: 'Running', value: 'Running'},
@@ -24,9 +24,23 @@ function AddAnActivity() {
    
   ]);
 
+  /* below are code for the duration text input */
+  const [duration, setDuration] = useState(0);
+  const [durationText, setDurationText] = useState('');
+  
+  const handleDurationChange = (durationText) => {
+    console.log('duration', durationText);
+    if(!isNaN(parseInt(durationText)) && parseInt(durationText)>0){
+      setDuration(parseInt(durationText));
+    }
+    else{
+      alert('Please enter a valid number for duration');
+    }
+  }
+
   /*  below are code for the date picker */
   const [date, setDate] = useState(new Date());
-  const [mode, setMode] = useState('date');
+  const mode = 'date';
   const [show, setShow] = useState(true);
 
   const onChange = (event, selectedDate) => {
@@ -49,14 +63,14 @@ function AddAnActivity() {
     <Text style={styles.addEntryText}>Activity *</Text>
     <DropDownPicker
       open={open}
-      value={value}
+      value={activityName}
       items={items}
       setOpen={setOpen}
-      setValue={setValue}
+      setValue={setActivityName}
       setItems={setItems}
     />
     <Text style={styles.addEntryText}>Duration (min) *</Text>
-    <TextInput style={styles.textInput} defaultValue=""/>
+    <TextInput style={styles.textInput} value={durationText} onChangeText={(text)=>{setDurationText(text)}} onBlur={()=>handleDurationChange(durationText)}/>
     <Text style={styles.addEntryText}>Date *</Text>
     <View>
       <Pressable onPress={showDatepicker}>
