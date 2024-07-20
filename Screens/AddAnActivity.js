@@ -61,6 +61,19 @@ function AddAnActivity() {
     showMode('date');
   };
 
+  /* below are code for the save and cancel buttons */
+  const handleSave = () => {
+    console.log('save button pressed');
+    console.log('activity', activityName);
+    console.log('duration', duration);
+    console.log('date', date);
+  }
+
+  const handleCancel = () => {
+    console.log('cancel button pressed');
+  }
+
+
   return (
     <View style={styles.addEntryContainer}>
     <Text style={styles.addEntryText}>Activity *</Text>
@@ -89,8 +102,8 @@ function AddAnActivity() {
       )}
     </View>
     <View style={styles.saveCancelContainer}>
-      <CancelButton/>
-      <SaveButton/>
+      <CancelButton handleCancel={handleCancel}/>
+      <SaveButton handleSave={handleSave}/>
     </View>
     
     </View>
