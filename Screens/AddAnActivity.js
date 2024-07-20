@@ -10,7 +10,7 @@ import { Pressable } from 'react-native';
 
 function AddAnActivity() {
 
-  /* below are code for the dropdown picker */
+  /* below are code for the activity dropdown picker */
   const [open, setOpen] = useState(false);
   const [activityName, setActivityName] = useState(null);
   const [items, setItems] = useState([
@@ -40,8 +40,9 @@ function AddAnActivity() {
 
   /*  below are code for the date picker */
   const [date, setDate] = useState(new Date());
+  //const [dateText, setDateText] = useState(date.toDateString());
   const mode = 'date';
-  const [show, setShow] = useState(true);
+  const [show, setShow] = useState(false);
 
   const onChange = (event, selectedDate) => {
     const currentDate = selectedDate || date;
@@ -72,9 +73,8 @@ function AddAnActivity() {
     <Text style={styles.addEntryText}>Duration (min) *</Text>
     <TextInput style={styles.textInput} value={durationText} onChangeText={(text)=>{setDurationText(text)}} onBlur={()=>handleDurationChange(durationText)}/>
     <Text style={styles.addEntryText}>Date *</Text>
+    <TextInput style={styles.textInput} value={date.toDateString()} onPressIn={()=>setShow(true)}/>
     <View>
-      <Pressable onPress={showDatepicker}>
-      </Pressable>
       {show && (
         <DateTimePicker
           testID="dateTimePicker"
