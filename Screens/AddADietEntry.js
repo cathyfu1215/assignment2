@@ -51,9 +51,20 @@ function AddADietEntry() {
   /* below are code for the save and cancel buttons */
   const handleSave = () => {
     console.log('save button pressed');
-    console.log('dietName', dietName);
-    console.log('calories', calories);
-    console.log('date', date);
+    // validate the three inputs
+    if(dietName.length === 0){
+      alert('Please enter a name for the diet');
+    }
+    else if(calories == 0){
+      alert('Please enter a valid number for calories');
+    }
+    else if (date == null){
+      alert('Please select a date');
+    }
+    else{
+      // save the data
+      console.log('diet added:' ,dietName, calories,date);
+    }
   }
 
   const handleCancel = () => {
@@ -63,7 +74,7 @@ function AddADietEntry() {
   return (
     <View style={styles.addEntryContainer}>
     <Text style={styles.addEntryText}>Description *</Text>
-    <TextInput style={styles.textInputBig} multiline={true} value={dietNameText} onChangeText={(text)=>{setDietNameText(text)}} onBlur={()=>handledietNameChange(dietNameText)}/>
+    <TextInput style={styles.textInputBig} value={dietNameText} onChangeText={(text)=>{setDietNameText(text)}} onBlur={()=>handledietNameChange(dietNameText)}/>
     <Text style={styles.addEntryText}>Calories *</Text>
     <TextInput style={styles.textInput} value={caloriesText} onChangeText={(text)=>{setCaloriesText(text)}} onBlur={()=>handleCaloriesChange(caloriesText)}/>
     <Text style={styles.addEntryText}>Date *</Text>

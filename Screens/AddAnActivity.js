@@ -51,9 +51,19 @@ function AddAnActivity() {
   /* below are code for the save and cancel buttons */
   const handleSave = () => {
     console.log('save button pressed');
-    console.log('activity', activityName);
-    console.log('duration', duration);
-    console.log('date', date);
+    // validate the three inputs
+    if(activityName == null){
+      alert('Please select an activity');
+    }
+    else if(duration == 0){
+      alert('Please enter a valid number for duration');
+    }
+    else if(date == null){
+      alert('Please select a date');
+    }
+    else{
+      console.log('activity added:' ,activityName, duration,date);
+    }
   }
 
   const handleCancel = () => {
