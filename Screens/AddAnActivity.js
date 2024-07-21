@@ -8,8 +8,9 @@ import DateTimePicker from '@react-native-community/datetimepicker';
 import SaveButton from '../Components/SaveButton.js';
 import CancelButton from '../Components/CancelButton.js';
 
-function AddAnActivity() {
+function AddAnActivity(props) {
 
+  console.log('AddAnActivity props:', props);
   /* below are code for the activity dropdown picker */
   const [open, setOpen] = useState(false);
   const [activityName, setActivityName] = useState(null);
@@ -29,7 +30,7 @@ function AddAnActivity() {
   const [durationText, setDurationText] = useState('');
   
   const handleDurationChange = (durationText) => {
-    console.log('duration', durationText);
+    //console.log('duration', durationText);
     if(!isNaN(parseInt(durationText)) && parseInt(durationText)>0){
       setDuration(parseInt(durationText));
     }
@@ -63,11 +64,13 @@ function AddAnActivity() {
     }
     else{
       console.log('activity added:' ,activityName, duration,date);
+      props.navigation.goBack();
     }
   }
 
   const handleCancel = () => {
     console.log('cancel button pressed');
+    props.navigation.goBack();
   }
 
 

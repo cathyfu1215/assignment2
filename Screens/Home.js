@@ -11,24 +11,23 @@ import AddEntryButton from '../Components/AddEntryButton.js';
 import { View } from 'react-native';
 import styles from '../styleHelper.js';
 import { FontAwesome6 } from '@expo/vector-icons';
-import { useState } from 'react';
 
 
 
 const Tab = createBottomTabNavigator();
 
 function Home() {
-  const [theme, setTheme] = useState('white');
+  // const [theme, setTheme] = useState('white');
 
-  function toggleTheme(){
-    if(theme === 'white'){
-      setTheme('wheat');
-      console.log('theme changed to wheat');
-    } else {
-      setTheme('white');
-      console.log('theme changed to white');
-    }
-  }
+  // function toggleTheme(){
+  //   if(theme === 'white'){
+  //     setTheme('wheat');
+  //     console.log('theme changed to wheat');
+  //   } else {
+  //     setTheme('white');
+  //     console.log('theme changed to white');
+  //   }
+  // }
 
 
 

@@ -7,14 +7,14 @@ import DateTimePicker from '@react-native-community/datetimepicker';
 import SaveButton from '../Components/SaveButton.js';
 import CancelButton from '../Components/CancelButton.js';
 
-function AddADietEntry() {
+function AddADietEntry(props) {
 
   /* below are code for the dietName text input */
   const [dietName, setDietName] = useState('');
   const [dietNameText, setDietNameText] = useState('');
   
   const handledietNameChange = (dietNameText) => {
-    console.log('dietNameText', dietNameText);
+    //console.log('dietNameText', dietNameText);
     if(dietNameText.length>0){
       setDietName(dietNameText);
     }
@@ -64,11 +64,13 @@ function AddADietEntry() {
     else{
       // save the data
       console.log('diet added:' ,dietName, calories,date);
+      props.navigation.goBack();
     }
   }
 
   const handleCancel = () => {
     console.log('cancel button pressed');
+    props.navigation.goBack();
   }
 
   return (
