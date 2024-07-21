@@ -60,7 +60,7 @@ function Home() {
       />
       <Tab.Screen 
           name="Setting" 
-          component={(props) => <Setting {...props} toggleTheme={toggleTheme} />}
+          component={Setting}
           options={({ navigation }) => ({
           tabBarButton: (props) => <MyTabButton {...props} navigation={navigation} name="Setting" logo={<Feather name="settings" size={24} color="black" />}/>
           })}

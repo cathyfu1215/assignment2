@@ -4,14 +4,16 @@ import PressableButton from '../Components/PressableButton'
 
 
 
-function Setting(props) {
+function Setting() {
   function handlePress() {
     console.log('toggle theme button pressed');
-    props.toggleTheme();
+    
   }
   return (
     <View>
-    <PressableButton children={'toggle theme'} pressedFunction={handlePress}/>
+    <PressableButton pressedFunction={handlePress}>
+      <Text>toggleTheme</Text>
+    </PressableButton>
     </View>
   )
 }
