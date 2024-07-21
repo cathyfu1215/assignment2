@@ -40,23 +40,12 @@ function AddAnActivity() {
 
   /*  below are code for the date picker */
   const [date, setDate] = useState(new Date());
-  //const [dateText, setDateText] = useState(date.toDateString());
-  const mode = 'date';
   const [show, setShow] = useState(false);
 
   const onChange = (event, selectedDate) => {
     const currentDate = selectedDate || date;
-    setShow(true);
     setDate(currentDate);
-  };
-
-  const showMode = (currentMode) => {
-    setShow(true);
-    setMode(currentMode);
-  };
-
-  const showDatepicker = () => {
-    showMode('date');
+    setShow(false);
   };
 
   /* below are code for the save and cancel buttons */
@@ -86,16 +75,15 @@ function AddAnActivity() {
     <Text style={styles.addEntryText}>Duration (min) *</Text>
     <TextInput style={styles.textInput} value={durationText} onChangeText={(text)=>{setDurationText(text)}} onBlur={()=>handleDurationChange(durationText)}/>
     <Text style={styles.addEntryText}>Date *</Text>
-    <TextInput style={styles.textInput} value={date.toDateString()} onPressIn={()=>setShow(true)}/>
+    <TextInput style={styles.textInput} editable={false} value={date.toDateString()} onPressIn={()=>setShow(!show)}/>
     <View>
       {show && (
         <DateTimePicker
           testID="dateTimePicker"
           value={date}
-          mode={mode}
-          is24Hour={true}
-          display="default"
+          mode='date'
           onChange={onChange}
+          display="inline"
         />
       )}
     </View>

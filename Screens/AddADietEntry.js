@@ -39,23 +39,14 @@ function AddADietEntry() {
 
   /*  below are code for the date picker */
   const [date, setDate] = useState(new Date());
-  const mode = 'date';
   const [show, setShow] = useState(false);
 
   const onChange = (event, selectedDate) => {
     const currentDate = selectedDate || date;
-    setShow(true);
     setDate(currentDate);
+    setShow(false);
   };
 
-  const showMode = (currentMode) => {
-    setShow(true);
-    setMode(currentMode);
-  };
-
-  const showDatepicker = () => {
-    showMode('date');
-  };
 
   /* below are code for the save and cancel buttons */
   const handleSave = () => {
@@ -76,16 +67,15 @@ function AddADietEntry() {
     <Text style={styles.addEntryText}>Calories *</Text>
     <TextInput style={styles.textInput} value={caloriesText} onChangeText={(text)=>{setCaloriesText(text)}} onBlur={()=>handleCaloriesChange(caloriesText)}/>
     <Text style={styles.addEntryText}>Date *</Text>
-    <TextInput style={styles.textInput} value={date.toDateString()} onPressIn={()=>setShow(true)}/>
+    <TextInput style={styles.textInput} editable={false} value={date.toDateString()} onPressIn={()=>setShow(!show)}/>
     <View>
       {show && (
         <DateTimePicker
           testID="dateTimePicker"
           value={date}
-          mode={mode}
-          is24Hour={true}
-          display="default"
+          mode='date'
           onChange={onChange}
+          display="inline"
         />
       )}
     </View>

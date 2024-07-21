@@ -21,7 +21,7 @@ function ItemsList({type, data}) {
     return (
       <View style={styles.itemlistline}>
         <>
-        <Text style={{margin:5}}>{item.text}</Text>
+        <Text style={{margin:5,fontWeight:'bold'}}>{item.text}</Text>
         <Text style={{margin:5}}>{item.special?<FontAwesome name="exclamation-triangle" size={24} color="black" />:"      "}</Text>
         <Text style={{margin:5, backgroundColor:'white',padding:3}}>{item.date}</Text>
         <Text style={{margin:5, backgroundColor:'white', padding:3}}>{item.duration} min </Text>
@@ -31,7 +31,7 @@ function ItemsList({type, data}) {
       return (
         <View style={styles.itemlistline}>
           <>
-          <Text style={{margin:5}}>{item.text}</Text>
+          <Text style={{margin:5,fontWeight:'bold'}}>{item.text}</Text>
           <Text style={{margin:5}}>{item.special?<FontAwesome name="exclamation-triangle" size={24} color="black" />:" "}</Text>
           <Text style={{margin:5, backgroundColor:'white',padding:3}}>{item.date}</Text>
           <Text style={{margin:5, backgroundColor:'white', padding:3}}>{item.calories}</Text>

@@ -117,6 +117,12 @@ export default styles = StyleSheet.create({
       width:'97%',
       height: '30%',
     },
+    toggleButtonContainer: {
+      flexDirection: 'row',
+      alignSelf: 'center',
+      padding: 5,
+
+    },
    
     
   });

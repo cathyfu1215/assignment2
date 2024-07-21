@@ -1,6 +1,7 @@
 import React from 'react'
 import { View, Text } from 'react-native'
 import PressableButton from '../Components/PressableButton'
+import styles from '../styleHelper'
 
 
 
@@ -12,7 +13,9 @@ function Setting() {
   return (
     <View>
     <PressableButton pressedFunction={handlePress}>
-      <Text>toggleTheme</Text>
+      <View style={styles.toggleButtonContainer}>
+      <Text style={styles.cancelButtonText}>🌞ToggleTheme🌛</Text>
+      </View>
     </PressableButton>
     </View>
   )
