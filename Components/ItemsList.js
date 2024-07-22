@@ -6,10 +6,21 @@ import PressableListItem from './PressableListItem';
 
 
 function ItemsList({type, data}) {
-  console.log('type from a page:', type);
-  console.log('data from a page:', data);
+  // console.log('type from a page:', type);
+  // console.log('data from a page:', data);
 
   function ItemLine({item}) {
+
+    function handlePressActivityItem() {
+      console.log('activity item pressed');
+      console.log('item:', item);
+    }
+
+    function handlePressDietItem() {
+      console.log('diet item pressed');
+      console.log('item:', item);
+    }
+
     item.special = false;
     if(type==="activity" && (item.text ==="Running"||"Weights") && item.duration>60){
       item.special = true;
@@ -21,7 +32,7 @@ function ItemsList({type, data}) {
     if (type === "activity") {
     return (
       <View style={styles.itemlistline}>
-        <PressableListItem>
+        <PressableListItem text={item.text} special={item.special} date={item.date} duration={item.duration} pressedFunction={handlePressActivityItem}>
         <Text style={{margin:5,fontWeight:'bold'}}>{item.text}</Text>
         <Text style={{margin:5}}>{item.special?<FontAwesome name="exclamation-triangle" size={24} color="black" />:"      "}</Text>
         <Text style={{margin:5, backgroundColor:'white',padding:3}}>{item.date}</Text>
@@ -31,7 +42,7 @@ function ItemsList({type, data}) {
     )} else {
       return (
         <View style={styles.itemlistline}>
-          <PressableListItem>
+          <PressableListItem text={item.text} special={item.special} date={item.date} calories={item.calories} pressedFunction={handlePressDietItem}>
           <Text style={{margin:5,fontWeight:'bold'}}>{item.text}</Text>
           <Text style={{margin:5}}>{item.special?<FontAwesome name="exclamation-triangle" size={24} color="black" />:" "}</Text>
           <Text style={{margin:5, backgroundColor:'white',padding:3}}>{item.date}</Text>
