@@ -17,19 +17,6 @@ import { FontAwesome6 } from '@expo/vector-icons';
 const Tab = createBottomTabNavigator();
 
 function Home() {
-  // const [theme, setTheme] = useState('white');
-
-  // function toggleTheme(){
-  //   if(theme === 'white'){
-  //     setTheme('wheat');
-  //     console.log('theme changed to wheat');
-  //   } else {
-  //     setTheme('white');
-  //     console.log('theme changed to white');
-  //   }
-  // }
-
-
 
   return (
     <Tab.Navigator 
@@ -51,7 +38,7 @@ function Home() {
           name={<View style={styles.addEntryView}>
           <FontAwesome6 name="plus" size={24} color="black" />
           <FontAwesome5 name="running" size={24} color="black" />
-        </View>} navigation= {navigation} route={route} />},
+        </View>} navigation= {navigation} route={route} />}
         })}
       />
       <Tab.Screen 

@@ -2,6 +2,7 @@ import React from 'react'
 import { Text, FlatList,SafeAreaView,View } from 'react-native'
 import styles from '../styleHelper';
 import { FontAwesome } from '@expo/vector-icons';
+import PressableListItem from './PressableListItem';
 
 
 function ItemsList({type, data}) {
@@ -20,22 +21,22 @@ function ItemsList({type, data}) {
     if (type === "activity") {
     return (
       <View style={styles.itemlistline}>
-        <>
+        <PressableListItem>
         <Text style={{margin:5,fontWeight:'bold'}}>{item.text}</Text>
         <Text style={{margin:5}}>{item.special?<FontAwesome name="exclamation-triangle" size={24} color="black" />:"      "}</Text>
         <Text style={{margin:5, backgroundColor:'white',padding:3}}>{item.date}</Text>
         <Text style={{margin:5, backgroundColor:'white', padding:3}}>{item.duration} min </Text>
-        </>
+        </PressableListItem>
         </View>
     )} else {
       return (
         <View style={styles.itemlistline}>
-          <>
+          <PressableListItem>
           <Text style={{margin:5,fontWeight:'bold'}}>{item.text}</Text>
           <Text style={{margin:5}}>{item.special?<FontAwesome name="exclamation-triangle" size={24} color="black" />:" "}</Text>
           <Text style={{margin:5, backgroundColor:'white',padding:3}}>{item.date}</Text>
           <Text style={{margin:5, backgroundColor:'white', padding:3}}>{item.calories}</Text>
-          </>
+          </PressableListItem>
           </View>
       )}
   }

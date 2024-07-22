@@ -41,8 +41,8 @@ export default styles = StyleSheet.create({
     },
     itemlistline: {
       flexDirection: 'row',
-      padding: 5,
-      margin: 5,
+      padding: 2,
+      margin: 2,
       backgroundColor: 'lightgrey',
       borderRadius: 5,
       textAlign: 'center',
