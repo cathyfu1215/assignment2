@@ -10,7 +10,17 @@ import CancelButton from '../Components/CancelButton.js';
 
 function AddAnActivity(props) {
 
+   /* 
+  In order to reuse this component for both adding and editing an activity, 
+  we need to check if there are already some params. 
+  If there are, we will use them to populate the fields.
+  */
+
   console.log('AddAnActivity props:', props);
+  console.log('AddAnActivity route:', props.route);
+
+ 
+  
   /* below are code for the activity dropdown picker */
   const [open, setOpen] = useState(false);
   const [activityName, setActivityName] = useState(null);

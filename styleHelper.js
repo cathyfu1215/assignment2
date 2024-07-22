@@ -146,6 +146,11 @@ export default styles = StyleSheet.create({
       padding: 5,
 
     },
+    editContainer: {
+      flex: 1,
+      alignContent: 'center',
+      justifyContent: 'start',
+    },
    
     
   });
