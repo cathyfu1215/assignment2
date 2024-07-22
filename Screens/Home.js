@@ -32,7 +32,16 @@ function Home() {
 
 
   return (
-    <Tab.Navigator>
+    <Tab.Navigator 
+    screenOptions={{
+      tabBarStyle: {
+        backgroundColor: 'lightblue', // This line sets the background color of the tab bar
+      },
+      headerStyle: {
+        backgroundColor: 'lightblue',
+      },
+    }}
+    >
       <Tab.Screen 
         name="Activities" 
         component={Activities} 
