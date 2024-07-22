@@ -6,8 +6,11 @@ import { TextInput } from 'react-native';
 import DateTimePicker from '@react-native-community/datetimepicker';
 import SaveButton from '../Components/SaveButton.js';
 import CancelButton from '../Components/CancelButton.js';
+import Checkbox from 'expo-checkbox';
 
 function AddADietEntry(props) {
+  const [isChecked, setChecked] = useState(false);
+
 
   /* below are code for the dietName text input */
   const [dietName, setDietName] = useState('');
@@ -91,6 +94,18 @@ function AddADietEntry(props) {
           display="inline"
         />
       )}
+    </View>
+    <View>
+      {(props.route.params.data && props.route.params.data.special) 
+      ?<View style={{flexDirection:'row',margin:10 }}>
+      <View style={{flexDirection:'column'}}>
+      <Text>This item is marked as special.</Text>
+      <Text>Select the checkbox if you would like 
+        to approve it.</Text>
+        </View>
+      <Checkbox style={styles.checkbox} value={isChecked} onValueChange={setChecked} />
+      </View>
+      :<Text> </Text>}
     </View>
     <View style={styles.saveCancelContainer}>
       <CancelButton handleCancel={handleCancel}/>

@@ -7,8 +7,11 @@ import { TextInput } from 'react-native';
 import DateTimePicker from '@react-native-community/datetimepicker';
 import SaveButton from '../Components/SaveButton.js';
 import CancelButton from '../Components/CancelButton.js';
+import Checkbox from 'expo-checkbox';
 
 function AddAnActivity(props) {
+
+  const [isChecked, setChecked] = useState(false);
 
    /* 
   In order to reuse this component for both adding and editing an activity, 
@@ -16,14 +19,11 @@ function AddAnActivity(props) {
   If there are, we will use them to populate the fields.
   */
 
-  console.log('AddAnActivity props:', props);
-  console.log('AddAnActivity route:', props.route);
-
- 
+  console.log('AddAnActivity props.route.params:', props.route.params);
   
   /* below are code for the activity dropdown picker */
   const [open, setOpen] = useState(false);
-  const [activityName, setActivityName] = useState(null);
+  const [activityName, setActivityName] = useState("");
   const [items, setItems] = useState([
     {label: 'Walking', value: 'Walking'},
     {label: 'Running', value: 'Running'},
@@ -109,6 +109,18 @@ function AddAnActivity(props) {
           display="inline"
         />
       )}
+    </View>
+    <View>
+    {(props.route.params.data && props.route.params.data.special) 
+      ?<View style={{flexDirection:'row',margin:10 }}>
+      <View style={{flexDirection:'column'}}>
+      <Text>This item is marked as special.</Text>
+      <Text>Select the checkbox if you would like 
+        to approve it.</Text>
+        </View>
+      <Checkbox style={styles.checkbox} value={isChecked} onValueChange={setChecked} />
+      </View>
+      :<Text> </Text>}
     </View>
     <View style={styles.saveCancelContainer}>
       <CancelButton handleCancel={handleCancel}/>

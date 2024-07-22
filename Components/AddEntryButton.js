@@ -10,7 +10,7 @@ function AddEntryButton(props) {
   function handleAddEntry(){
  
     console.log('add entry button pressed, props are: ', props);
-    props.navigation.navigate(props.type);
+    props.navigation.navigate(props.type,{isEdit:false, itemSpecial:false});
   }
 
 

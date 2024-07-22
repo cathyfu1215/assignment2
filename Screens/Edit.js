@@ -8,29 +8,18 @@ function Edit(props) {
   console.log('type', props.route.params.type);
   console.log('data', props.route.params.data);
   
-  return (
-
-  <View style={styles.editContainer}>
-  {props.route.params.type === 'activity'?
-  <AddAnActivity/>:
-  <AddADietEntry/>}
-
-
-  {/* {props.route.params.data.special?
-  <View style={{flex:0.5}}>
-    <Text>special</Text>
-  </View>
-  :
-  <View>
-  <Text> </Text>
-  </View>} */}
-  
-  
-  
-  </View>
-
-
-  )
+ 
+  if(props.route.params.type === 'activity'){
+    return (
+      <AddAnActivity navigation={props.navigation} route={props.route} />
+    )
+  }
+  else{
+    return (
+      <AddADietEntry navigation={props.navigation} route={props.route} />
+    )
+  }
+ 
 }
 
 export default Edit
