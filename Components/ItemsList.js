@@ -5,7 +5,7 @@ import { FontAwesome } from '@expo/vector-icons';
 import PressableListItem from './PressableListItem';
 
 
-function ItemsList({type, data}) {
+function ItemsList({type, data,navigation, route}) {
   // console.log('type from a page:', type);
   // console.log('data from a page:', data);
 
@@ -14,11 +14,13 @@ function ItemsList({type, data}) {
     function handlePressActivityItem() {
       console.log('activity item pressed');
       console.log('item:', item);
+      navigation.navigate('Edit', {type: 'activity', data: item});
     }
 
     function handlePressDietItem() {
       console.log('diet item pressed');
       console.log('item:', item);
+      navigation.navigate('Edit', {type: 'diet', data: item});
     }
 
     item.special = false;
