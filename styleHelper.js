@@ -50,9 +50,17 @@ export default styles = StyleSheet.create({
       justifyContent: 'space-between',
       alignContent: 'center',
     },
+
+    /* light and dark theme */
     itemContainer: {
       flex: 1,
-      backgroundColor: '#fff',
+      backgroundColor: 'white',
+      alignItems: 'center',
+      justifyContent: 'start',
+    },
+    itemContainerDark: {
+      flex: 1,
+      backgroundColor: 'darkgrey',
       alignItems: 'center',
       justifyContent: 'start',
     },
@@ -60,10 +68,24 @@ export default styles = StyleSheet.create({
       flex: 1,
       alignItems: 'left',
       justifyContent: 'start',
-      margin: 10,
+      
       alignContent: 'center',
       justifyContent: 'start',
     },
+    addEntryContainerDark: {
+      flex: 1,
+      alignItems: 'left',
+      justifyContent: 'start',
+     
+      alignContent: 'center',
+      justifyContent: 'start',
+      backgroundColor: 'darkgrey',
+    },
+
+
+    /* end of light and dark theme */
+
+
     addEntryText:{
       fontSize: 15,
       color: 'black',

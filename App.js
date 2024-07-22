@@ -12,7 +12,15 @@ const Stack = createNativeStackNavigator();
 export default function App() {
   return (
     <NavigationContainer>
-     <Stack.Navigator initialRouteName='Home'>
+     <Stack.Navigator initialRouteName='Home'
+     screenOptions={{
+      tabBarStyle: {
+        backgroundColor: 'lightblue', 
+      },
+      headerStyle: {
+        backgroundColor: 'lightblue',
+      },}}
+     >
       <Stack.Screen name="Home" component={Home}
        options={{headerShown: false}}/>
 
