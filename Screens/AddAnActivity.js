@@ -10,11 +10,20 @@ import CancelButton from '../Components/CancelButton.js';
 import Checkbox from 'expo-checkbox';
 import { useContext } from 'react';
 import { ThemeContext } from '../Components/ThemeContext.js';
+import { useEffect } from 'react';
 
 function AddAnActivity(props) {
 
   const [isChecked, setChecked] = useState(false);
   const { theme, toggleTheme } = useContext(ThemeContext);
+
+  useEffect(() => {
+    props.navigation.setOptions({
+      headerStyle: {
+        backgroundColor: theme==='light'?'lightblue':'purple',
+      },
+    });
+  }, []);
 
    /* 
   In order to reuse this component for both adding and editing an activity, 

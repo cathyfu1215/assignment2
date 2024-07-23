@@ -9,10 +9,19 @@ import CancelButton from '../Components/CancelButton.js';
 import Checkbox from 'expo-checkbox';
 import { useContext } from 'react';
 import { ThemeContext } from '../Components/ThemeContext.js';
+import { useEffect } from 'react';
 
 function AddADietEntry(props) {
   const [isChecked, setChecked] = useState(false);
   const { theme, toggleTheme } = useContext(ThemeContext);
+
+  useEffect(() => {
+    props.navigation.setOptions({
+      headerStyle: {
+        backgroundColor: theme==='light'?'lightblue':'purple',
+      },
+    });
+  }, []);
 
 
   /* below are code for the dietName text input */
