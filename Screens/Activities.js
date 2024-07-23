@@ -3,9 +3,13 @@ import { SafeAreaView } from 'react-native-safe-area-context'
 import { useState } from 'react'
 import ItemsList from '../Components/ItemsList.js'
 import styles from '../styleHelper.js'
+import { useContext } from 'react';
+import { ThemeContext } from '../Components/ThemeContext.js';
 
 function Activities(props) {
     // I put some examples in the state so the testing is easier
+
+    const { theme, toggleTheme } = useContext(ThemeContext);
 
     console.log('props in activities page',props);
     const [activities, setActivities] = useState([{id:1, text:"Running", duration:65, date:"Fri 2024-07-19"},
@@ -18,7 +22,7 @@ function Activities(props) {
     };
   
     return (
-      <SafeAreaView style={styles.itemContainer}>
+      <SafeAreaView style={theme==='light'?styles.itemContainer:styles.itemContainerDark}>
         <ItemsList type="activity" data={activities} navigation={props.navigation} route={props.route}/>
       </SafeAreaView>
     );

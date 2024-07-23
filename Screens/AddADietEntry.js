@@ -7,9 +7,12 @@ import DateTimePicker from '@react-native-community/datetimepicker';
 import SaveButton from '../Components/SaveButton.js';
 import CancelButton from '../Components/CancelButton.js';
 import Checkbox from 'expo-checkbox';
+import { useContext } from 'react';
+import { ThemeContext } from '../Components/ThemeContext.js';
 
 function AddADietEntry(props) {
   const [isChecked, setChecked] = useState(false);
+  const { theme, toggleTheme } = useContext(ThemeContext);
 
 
   /* below are code for the dietName text input */
@@ -77,7 +80,7 @@ function AddADietEntry(props) {
   }
 
   return (
-    <View style={styles.addEntryContainer}>
+    <View style={theme==='light'?styles.addEntryContainer:styles.addEntryContainerDark}>
     <Text style={styles.addEntryText}>Description *</Text>
     <TextInput style={styles.textInputBig} value={dietNameText} onChangeText={(text)=>{setDietNameText(text)}} onBlur={()=>handledietNameChange(dietNameText)}/>
     <Text style={styles.addEntryText}>Calories *</Text>

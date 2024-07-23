@@ -6,11 +6,16 @@ import AddAnActivity from './Screens/AddAnActivity.js';
 import AddADietEntry from './Screens/AddADietEntry.js';
 import Edit from './Screens/Edit.js';
 import Home from './Screens/Home.js';
+import { ThemeProvider } from './Components/ThemeContext.js';
+
 
 
 const Stack = createNativeStackNavigator();
 export default function App() {
+
+  
   return (
+    <ThemeProvider>
     <NavigationContainer>
      <Stack.Navigator initialRouteName='Home'
      screenOptions={{
@@ -18,7 +23,7 @@ export default function App() {
         backgroundColor: 'lightblue', 
       },
       headerStyle: {
-        backgroundColor: 'lightblue',
+        backgroundColor:'lightblue',
       },}}
      >
       <Stack.Screen name="Home" component={Home}
@@ -31,6 +36,7 @@ export default function App() {
                                              
     </Stack.Navigator>
     </NavigationContainer>
+    </ThemeProvider>
   );
 }
 

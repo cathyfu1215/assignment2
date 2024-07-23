@@ -8,10 +8,13 @@ import DateTimePicker from '@react-native-community/datetimepicker';
 import SaveButton from '../Components/SaveButton.js';
 import CancelButton from '../Components/CancelButton.js';
 import Checkbox from 'expo-checkbox';
+import { useContext } from 'react';
+import { ThemeContext } from '../Components/ThemeContext.js';
 
 function AddAnActivity(props) {
 
   const [isChecked, setChecked] = useState(false);
+  const { theme, toggleTheme } = useContext(ThemeContext);
 
    /* 
   In order to reuse this component for both adding and editing an activity, 
@@ -85,7 +88,7 @@ function AddAnActivity(props) {
 
 
   return (
-    <View style={styles.addEntryContainer}>
+    <View style={theme==='light'?styles.addEntryContainer:styles.addEntryContainerDark}>
     <Text style={styles.addEntryText}>Activity *</Text>
     <DropDownPicker
       open={open}

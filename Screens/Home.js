@@ -11,6 +11,8 @@ import AddEntryButton from '../Components/AddEntryButton.js';
 import { View } from 'react-native';
 import styles from '../styleHelper.js';
 import { FontAwesome6 } from '@expo/vector-icons';
+import { useContext } from 'react';
+import { ThemeContext } from '../Components/ThemeContext.js';
 
 
 
@@ -18,14 +20,16 @@ const Tab = createBottomTabNavigator();
 
 function Home() {
 
+  const { theme, toggleTheme } = useContext(ThemeContext);
+
   return (
     <Tab.Navigator 
     screenOptions={{
       tabBarStyle: {
-        backgroundColor: 'lightblue', // This line sets the background color of the tab bar
+        backgroundColor: theme==='light'?'lightblue':'purple', 
       },
       headerStyle: {
-        backgroundColor: 'lightblue',
+        backgroundColor: theme==='light'?'lightblue':'purple',
       },
     }}
     >
