@@ -24,11 +24,13 @@ function Setting(props) {
   }
   return (
     <View style={theme==='light'?styles.itemContainer:styles.itemContainerDark}>
+    <View style={{marginTop:150}}>
     <PressableButton pressedFunction={handlePress}>
       <View style={styles.toggleButtonContainer}>
       <Text style={styles.cancelButtonText}>🌞ToggleTheme🌛</Text>
       </View>
     </PressableButton>
+    </View>
     </View>
   )
 }
