@@ -2,6 +2,7 @@ import React from 'react'
 import { View, Text, Pressable } from 'react-native';
 import styles from '../styleHelper.js';
 import PressableButton from './PressableButton';
+import { writeToDB } from '../Firebase/fireStoreHelper.js';
 
 
 /* This button is for either add an entry to activity or diet */

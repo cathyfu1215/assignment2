@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { act } from 'react'
 import { View, Text } from 'react-native'
 import styles from '../styleHelper.js'
 import DropDownPicker from 'react-native-dropdown-picker';
@@ -11,12 +11,12 @@ import Checkbox from 'expo-checkbox';
 import { useContext } from 'react';
 import { ThemeContext } from '../Components/ThemeContext.js';
 import { useEffect } from 'react';
+import { writeToDB } from '../Firebase/fireStoreHelper.js';
 
 function AddAnActivity(props) {
 
   const [isChecked, setChecked] = useState(false);
   const { theme, toggleTheme } = useContext(ThemeContext);
-
   useEffect(() => {
     props.navigation.setOptions({
       headerStyle: {
@@ -85,10 +85,22 @@ function AddAnActivity(props) {
       alert('Please select a date');
     }
     else{
-      console.log('activity added:' ,activityName, duration,date);
+      // save the activity to the database
+      // if the activity is special, save it with a field 'special' set to true
+      if(duration>60){
+        if(activityName === 'Running' || activityName === 'Weights'){
+         activitySpecial = true;
+        }
+      }
+      else{
+        activitySpecial = false;
+      }
+      console.log('activity added:',activityName, duration,date,activitySpecial);
+      writeToDB({activityName, duration, date, activitySpecial},'activities');
       props.navigation.goBack();
     }
   }
+  
 
   const handleCancel = () => {
     console.log('cancel button pressed');
