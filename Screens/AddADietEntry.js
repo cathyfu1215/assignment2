@@ -89,7 +89,8 @@ function AddADietEntry(props) {
       }
 
       console.log('diet added:' ,dietName, calories,date,special);
-      writeToDB({dietName,calories,date,special},'diets');
+      dateString = date.toDateString();
+      writeToDB({dietName,calories,dateString,special},'diets');
       props.navigation.goBack();
     }
   }

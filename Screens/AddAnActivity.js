@@ -96,7 +96,8 @@ function AddAnActivity(props) {
         special = false;
       }
       console.log('activity added:',activityName, duration,date,special);
-      writeToDB({activityName, duration, date, special},'activities');
+      dateString = date.toDateString();
+      writeToDB({activityName, duration, dateString, special},'activities');
       props.navigation.goBack();
     }
   }

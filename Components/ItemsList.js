@@ -23,21 +23,21 @@ function ItemsList({type, data,navigation, route}) {
       navigation.navigate('Edit', {type: 'diet', data: item});
     }
 
-    item.special = false;
-    if(type==="activity" && (item.text ==="Running"||"Weights") && item.duration>60){
-      item.special = true;
-    }
-    if(type==="diet"&& item.calories>800){
-      item.special = true;
-    }
+    // item.special = false;
+    // if(type==="activity" && (item.text ==="Running"||"Weights") && item.duration>60){
+    //   item.special = true;
+    // }
+    // if(type==="diet"&& item.calories>800){
+    //   item.special = true;
+    // }
 
     if (type === "activity") {
     return (
       <View style={styles.itemlistline}>
-        <PressableListItem text={item.text} special={item.special} date={item.date} duration={item.duration} pressedFunction={handlePressActivityItem}>
-        <Text style={{margin:5,fontWeight:'bold'}}>{item.text}</Text>
+        <PressableListItem text={item.activityName} special={item.special} date={item.dateString} duration={item.duration} pressedFunction={handlePressActivityItem}>
+        <Text style={{margin:5,fontWeight:'bold'}}>{item.activityName}</Text>
         <Text style={{margin:5}}>{item.special?<FontAwesome name="exclamation-triangle" size={24} color="black" />:"      "}</Text>
-        <Text style={{margin:5, backgroundColor:'white',padding:3}}>{item.date}</Text>
+        <Text style={{margin:5, backgroundColor:'white',padding:3}}>{item.dateString}</Text>
         <Text style={{margin:5, backgroundColor:'white', padding:3}}>{item.duration} min </Text>
         </PressableListItem>
         </View>
