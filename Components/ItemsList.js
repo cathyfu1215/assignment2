@@ -12,14 +12,14 @@ function ItemsList({type, data,navigation, route}) {
   function ItemLine({item}) {
 
     function handlePressActivityItem() {
-      console.log('activity item pressed');
-      console.log('item:', item);
+      // console.log('activity item pressed');
+      // console.log('item:', item);
       navigation.navigate('Edit', {type: 'activity', data: item});
     }
 
     function handlePressDietItem() {
-      console.log('diet item pressed');
-      console.log('item:', item);
+      // console.log('diet item pressed');
+      // console.log('item:', item);
       navigation.navigate('Edit', {type: 'diet', data: item});
     }
 

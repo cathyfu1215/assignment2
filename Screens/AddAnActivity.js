@@ -33,7 +33,7 @@ function AddAnActivity(props) {
   If there are, we will use them to populate the fields.
   */
 
-  console.log('AddAnActivity props.route.params:', props.route.params);
+ // console.log('AddAnActivity props.route.params:', props.route.params);
   
   /* below are code for the activity dropdown picker */
   const [open, setOpen] = useState(false);
@@ -129,7 +129,7 @@ function AddAnActivity(props) {
   
 
   const handleCancel = () => {
-    console.log('cancel button pressed');
+    //console.log('cancel button pressed');
     props.navigation.goBack();
   }
 

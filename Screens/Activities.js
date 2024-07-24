@@ -15,7 +15,7 @@ function Activities(props) {
 
     const { theme, toggleTheme } = useContext(ThemeContext);
 
-    console.log('props in activities page',props);
+    //console.log('props in activities page',props);
     const [activities, setActivities] = useState([]);
 
     useEffect(() => {

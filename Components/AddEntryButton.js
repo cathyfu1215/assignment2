@@ -10,7 +10,7 @@ import { writeToDB } from '../Firebase/fireStoreHelper.js';
 function AddEntryButton(props) {
   function handleAddEntry(){
  
-    console.log('add entry button pressed, props are: ', props);
+    //console.log('add entry button pressed, props are: ', props);
     props.navigation.navigate(props.type,{isEdit:false, itemSpecial:false});
   }
 

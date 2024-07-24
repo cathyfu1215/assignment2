@@ -15,10 +15,10 @@ function Setting(props) {
   //console.log('props in Setting.js', props);
 
   function handlePress() {
-    console.log('current theme is', theme);
-    console.log('toggle theme button pressed');
+    // console.log('current theme is', theme);
+    // console.log('toggle theme button pressed');
     toggleTheme();
-    console.log('new theme is',theme);
+    //console.log('new theme is',theme);
 
     
   }

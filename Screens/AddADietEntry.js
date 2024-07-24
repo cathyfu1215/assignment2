@@ -26,7 +26,7 @@ function AddADietEntry(props) {
     });
   }, []);
 
-  console.log('AddADietEntry props.route.params:', props.route.params);
+  //console.log('AddADietEntry props.route.params:', props.route.params);
 
 
   /* below are code for the dietName text input */
@@ -48,7 +48,7 @@ function AddADietEntry(props) {
   const [caloriesText, setCaloriesText] = useState(props.route.params.data?props.route.params.data.calories.toString():"");
   
   const handleCaloriesChange = (durationText) => {
-    console.log('calories', caloriesText);
+    //console.log('calories', caloriesText);
     if(!isNaN(parseInt(caloriesText)) && parseInt(caloriesText)>0){
       setCalories(parseInt(caloriesText));
     }
@@ -70,7 +70,7 @@ function AddADietEntry(props) {
 
   /* below are code for the save and cancel buttons */
   const handleSave = () => {
-    console.log('save button pressed');
+    //console.log('save button pressed');
     // validate the three inputs
     if(dietName.length === 0){
       alert('Please enter a name for the diet');
@@ -93,7 +93,7 @@ function AddADietEntry(props) {
         special = false;
       }
 
-      console.log('diet added:' ,dietName, calories,date,special);
+      //console.log('diet added:' ,dietName, calories,date,special);
       writeToDB({dietName,calories,date,special},'diets');
       props.navigation.goBack();
     }
@@ -122,7 +122,7 @@ function AddADietEntry(props) {
 }
 
   const handleCancel = () => {
-    console.log('cancel button pressed');
+    //console.log('cancel button pressed');
     props.navigation.goBack();
   }
 
