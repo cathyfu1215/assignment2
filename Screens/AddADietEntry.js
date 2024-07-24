@@ -10,6 +10,7 @@ import Checkbox from 'expo-checkbox';
 import { useContext } from 'react';
 import { ThemeContext } from '../Components/ThemeContext.js';
 import { useEffect } from 'react';
+import { writeToDB } from '../Firebase/fireStoreHelper.js';
 
 function AddADietEntry(props) {
   const [isChecked, setChecked] = useState(false);
@@ -78,7 +79,17 @@ function AddADietEntry(props) {
     }
     else{
       // save the data
-      console.log('diet added:' ,dietName, calories,date);
+      
+      // if the diet is special, save it with a field 'special' set to true
+      if(calories>500){
+        dietSpecial = true;
+      }
+      else{
+        dietSpecial = false;
+      }
+
+      console.log('diet added:' ,dietName, calories,date,dietSpecial);
+      writeToDB({dietName,calories,date,dietSpecial},'diets');
       props.navigation.goBack();
     }
   }
