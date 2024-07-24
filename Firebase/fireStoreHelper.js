@@ -23,11 +23,11 @@ export async function writeToDB(item,collectionName) {
 
 
 	
-	  export async function updateDB(id, collectionName) {
+	  export async function updateDB(id, collectionName,newItem) {
 		
 		try {
 			const goalRef = doc(database, collectionName, id);
-			await updateDoc(goalRef, { warning: true });// use this for now
+			await updateDoc(goalRef, newItem);// use this for now
 		}
 		catch (err) {
 		  console.log(err)

@@ -12,6 +12,7 @@ import { useContext } from 'react';
 import { ThemeContext } from '../Components/ThemeContext.js';
 import { useEffect } from 'react';
 import { writeToDB } from '../Firebase/fireStoreHelper.js';
+import { updateDB } from '../Firebase/fireStoreHelper.js';
 
 function AddAnActivity(props) {
 
@@ -73,7 +74,7 @@ function AddAnActivity(props) {
 
   /* below are code for the save and cancel buttons */
   const handleSave = () => {
-    console.log('save button pressed');
+    //console.log('save button pressed');
     // validate the three inputs
     if(activityName == null){
       alert('Please select an activity');
@@ -85,6 +86,7 @@ function AddAnActivity(props) {
       alert('Please select a date');
     }
     else{
+      if(!props.route.params.data){ // this is a new activity
       // save the activity to the database
       // if the activity is special, save it with a field 'special' set to true
       if(duration>60){
@@ -95,11 +97,19 @@ function AddAnActivity(props) {
       else{
         special = false;
       }
-      console.log('activity added:',activityName, duration,date,special);
+      //console.log('activity added:',activityName, duration,date,special);
       writeToDB({activityName, duration, date, special},'activities');
       props.navigation.goBack();
     }
+    else{// this is an edit to existing activity
+      //console.log('edit activity:',activityName, duration,date);
+      updateDB(props.route.params.data.id, 'activities',{activityName, duration, date, special:(props.route.params.data.special &&isChecked)?false:props.route.params.data.special});
+      props.navigation.goBack();
+
+    }
   }
+
+}
   
 
   const handleCancel = () => {

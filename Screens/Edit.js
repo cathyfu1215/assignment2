@@ -10,8 +10,8 @@ import { Alert } from 'react-native';
 import { deleteFromDB } from '../Firebase/fireStoreHelper.js';
 
 function Edit(props) {
-  console.log('type', props.route.params.type);
-  console.log('data', props.route.params.data);
+  // console.log('type', props.route.params.type);
+  // console.log('data', props.route.params.data);
 
  
   function deleteHandler() {
@@ -30,8 +30,8 @@ function Edit(props) {
           // Array of buttons
           {text: 'NO', onPress: () => console.log('Cancel Pressed'), style: 'cancel'},
           {text: 'YES', onPress: () => {
-            console.log('OK Pressed'); 
-            console.log('delete activity',props.route.params.data.id);
+            // console.log('OK Pressed'); 
+            // console.log('delete activity',props.route.params.data.id);
             deleteFromDB(props.route.params.data.id, 'activities');
             props.navigation.goBack();
           }},
@@ -51,8 +51,8 @@ function Edit(props) {
           // Array of buttons
           {text: 'NO', onPress: () => console.log('Cancel Pressed'), style: 'cancel'},
           {text: 'YES', onPress: () => {
-            console.log('OK Pressed'); 
-            console.log('delete diet',props.route.params.data.id);
+            // console.log('OK Pressed'); 
+            // console.log('delete diet',props.route.params.data.id);
             deleteFromDB(props.route.params.data.id, 'diets');
             props.navigation.goBack();}},
         ]

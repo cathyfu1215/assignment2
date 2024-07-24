@@ -11,6 +11,7 @@ import { useContext } from 'react';
 import { ThemeContext } from '../Components/ThemeContext.js';
 import { useEffect } from 'react';
 import { writeToDB } from '../Firebase/fireStoreHelper.js';
+import { updateDB } from '../Firebase/fireStoreHelper.js';
 
 function AddADietEntry(props) {
   const [isChecked, setChecked] = useState(false);
@@ -82,6 +83,7 @@ function AddADietEntry(props) {
     else{
       // save the data
       
+      if(!props.route.params.data){ // this is a new diet
       // if the diet is special, save it with a field 'special' set to true
       if(calories>500){
         special = true;
@@ -94,7 +96,14 @@ function AddADietEntry(props) {
       writeToDB({dietName,calories,date,special},'diets');
       props.navigation.goBack();
     }
+    else{
+      // this is an edit to existing diet
+      
+      updateDB(props.route.params.data.id, 'diets',{dietName, calories, date, special:(props.route.params.data.special &&isChecked)?false:props.route.params.data.special});
+      props.navigation.goBack();
+    }
   }
+}
 
   const handleCancel = () => {
     console.log('cancel button pressed');
