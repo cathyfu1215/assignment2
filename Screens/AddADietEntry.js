@@ -12,6 +12,7 @@ import { ThemeContext } from '../Components/ThemeContext.js';
 import { useEffect } from 'react';
 import { writeToDB } from '../Firebase/fireStoreHelper.js';
 import { updateDB } from '../Firebase/fireStoreHelper.js';
+import { Alert } from 'react-native';
 
 function AddADietEntry(props) {
   const [isChecked, setChecked] = useState(false);
@@ -98,9 +99,24 @@ function AddADietEntry(props) {
     }
     else{
       // this is an edit to existing diet
+
+      Alert.alert(
+        // Title
+        'Important',
+        // Message
+        'Are you sure you want save these changes?',
+        [
+          // Array of buttons
+          {text: 'NO', onPress: () => console.log('Cancel Pressed'), style: 'cancel'},
+          {text: 'YES', onPress: () => {
+            // console.log('OK Pressed'); 
+            // console.log('delete diet',props.route.params.data.id);
+            updateDB(props.route.params.data.id, 'diets',{dietName, calories, date, special:(props.route.params.data.special &&isChecked)?false:props.route.params.data.special});
+            props.navigation.goBack();}},
+        ]
+      );
       
-      updateDB(props.route.params.data.id, 'diets',{dietName, calories, date, special:(props.route.params.data.special &&isChecked)?false:props.route.params.data.special});
-      props.navigation.goBack();
+     
     }
   }
 }

@@ -13,6 +13,7 @@ import { ThemeContext } from '../Components/ThemeContext.js';
 import { useEffect } from 'react';
 import { writeToDB } from '../Firebase/fireStoreHelper.js';
 import { updateDB } from '../Firebase/fireStoreHelper.js';
+import { Alert } from 'react-native';
 
 function AddAnActivity(props) {
 
@@ -103,8 +104,23 @@ function AddAnActivity(props) {
     }
     else{// this is an edit to existing activity
       //console.log('edit activity:',activityName, duration,date);
-      updateDB(props.route.params.data.id, 'activities',{activityName, duration, date, special:(props.route.params.data.special &&isChecked)?false:props.route.params.data.special});
-      props.navigation.goBack();
+
+      Alert.alert(
+        // Title
+        'Important',
+        // Message
+        'Are you sure you want to save these changes?',
+        [
+          // Array of buttons
+          {text: 'NO', onPress: () => console.log('Cancel Pressed'), style: 'cancel'},
+          {text: 'YES', onPress: () => {
+            
+            updateDB(props.route.params.data.id, 'activities',{activityName, duration, date, special:(props.route.params.data.special &&isChecked)?false:props.route.params.data.special});
+            props.navigation.goBack();
+          }},
+        ]
+      );
+      
 
     }
   }
