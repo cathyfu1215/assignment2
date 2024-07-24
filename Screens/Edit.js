@@ -13,7 +13,13 @@ function Edit(props) {
 
  
   function deleteHandler() {
-    console.log("delete entry", props.route.params.data);
+    //console.log("delete entry", props.route.params.data, 'type', props.route.params.type);
+    if(props.route.params.type === 'activity'){
+      console.log('delete activity',props.route.params.data.id);
+    }
+    else{
+      console.log('delete diet',props.route.params.data.id);
+    }
   }
   useEffect(() => {
     props.navigation.setOptions({

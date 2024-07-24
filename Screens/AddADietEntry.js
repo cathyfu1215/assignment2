@@ -24,10 +24,12 @@ function AddADietEntry(props) {
     });
   }, []);
 
+  console.log('AddADietEntry props.route.params:', props.route.params);
+
 
   /* below are code for the dietName text input */
-  const [dietName, setDietName] = useState('');
-  const [dietNameText, setDietNameText] = useState('');
+  const [dietName, setDietName] = useState(props.route.params.data?props.route.params.data.dietName:"");
+  const [dietNameText, setDietNameText] = useState(props.route.params.data?props.route.params.data.dietName:"");
   
   const handledietNameChange = (dietNameText) => {
     //console.log('dietNameText', dietNameText);
@@ -40,8 +42,8 @@ function AddADietEntry(props) {
   }
 
   /* below are code for the calories text input */
-  const [calories, setCalories] = useState(0);
-  const [caloriesText, setCaloriesText] = useState('');
+  const [calories, setCalories] = useState(props.route.params.data?props.route.params.data.calories:0);
+  const [caloriesText, setCaloriesText] = useState(props.route.params.data?props.route.params.data.calories.toString():"");
   
   const handleCaloriesChange = (durationText) => {
     console.log('calories', caloriesText);
@@ -89,8 +91,7 @@ function AddADietEntry(props) {
       }
 
       console.log('diet added:' ,dietName, calories,date,special);
-      dateString = date.toDateString();
-      writeToDB({dietName,calories,dateString,special},'diets');
+      writeToDB({dietName,calories,date,special},'diets');
       props.navigation.goBack();
     }
   }

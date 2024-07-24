@@ -35,7 +35,7 @@ function AddAnActivity(props) {
   
   /* below are code for the activity dropdown picker */
   const [open, setOpen] = useState(false);
-  const [activityName, setActivityName] = useState("");
+  const [activityName, setActivityName] = useState(props.route.params.data?props.route.params.data.activityName:"");
   const [items, setItems] = useState([
     {label: 'Walking', value: 'Walking'},
     {label: 'Running', value: 'Running'},
@@ -48,8 +48,8 @@ function AddAnActivity(props) {
   ]);
 
   /* below are code for the duration text input */
-  const [duration, setDuration] = useState(0);
-  const [durationText, setDurationText] = useState('');
+  const [duration, setDuration] = useState(props.route.params.data?props.route.params.data.duration:0);
+  const [durationText, setDurationText] = useState(props.route.params.data?props.route.params.data.duration.toString():"");
   
   const handleDurationChange = (durationText) => {
     //console.log('duration', durationText);
@@ -96,8 +96,7 @@ function AddAnActivity(props) {
         special = false;
       }
       console.log('activity added:',activityName, duration,date,special);
-      dateString = date.toDateString();
-      writeToDB({activityName, duration, dateString, special},'activities');
+      writeToDB({activityName, duration, date, special},'activities');
       props.navigation.goBack();
     }
   }

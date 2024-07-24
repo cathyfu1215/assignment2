@@ -31,23 +31,26 @@ function ItemsList({type, data,navigation, route}) {
     //   item.special = true;
     // }
 
+    let options = { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' };
+
+
     if (type === "activity") {
     return (
       <View style={styles.itemlistline}>
-        <PressableListItem text={item.activityName} special={item.special} date={item.dateString} duration={item.duration} pressedFunction={handlePressActivityItem}>
+        <PressableListItem text={item.activityName} special={item.special} date={item.date} duration={item.duration} pressedFunction={handlePressActivityItem}>
         <Text style={{margin:5,fontWeight:'bold'}}>{item.activityName}</Text>
         <Text style={{margin:5}}>{item.special?<FontAwesome name="exclamation-triangle" size={24} color="black" />:"      "}</Text>
-        <Text style={{margin:5, backgroundColor:'white',padding:3}}>{item.dateString}</Text>
+        <Text style={{margin:5, backgroundColor:'white',padding:3}}>{item.date.toDate().toLocaleDateString('en-US', options)}</Text>
         <Text style={{margin:5, backgroundColor:'white', padding:3}}>{item.duration} min </Text>
         </PressableListItem>
         </View>
     )} else {
       return (
         <View style={styles.itemlistline}>
-          <PressableListItem text={item.dietName} special={item.special} date={item.dateString} calories={item.calories} pressedFunction={handlePressDietItem}>
+          <PressableListItem text={item.dietName} special={item.special} date={item.date} calories={item.calories} pressedFunction={handlePressDietItem}>
           <Text style={{margin:5,fontWeight:'bold'}}>{item.dietName}</Text>
           <Text style={{margin:5}}>{item.special?<FontAwesome name="exclamation-triangle" size={24} color="black" />:" "}</Text>
-          <Text style={{margin:5, backgroundColor:'white',padding:3}}>{item.dateString}</Text>
+          <Text style={{margin:5, backgroundColor:'white',padding:3}}>{item.date.toDate().toLocaleDateString('en-US', options)}</Text>
           <Text style={{margin:5, backgroundColor:'white', padding:3}}>{item.calories}</Text>
           </PressableListItem>
           </View>
