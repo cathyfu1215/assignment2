@@ -7,20 +7,32 @@ import ItemsList from '../Components/ItemsList.js'
 import styles from '../styleHelper.js'
 import { useContext } from 'react';
 import { ThemeContext } from '../Components/ThemeContext.js';
+import { collection, onSnapshot } from 'firebase/firestore';
+import { useEffect } from 'react'
+import { database } from '../Firebase/firebaseSetup.js';
+
 
 function Diet(props) {
 
   const { theme, toggleTheme } = useContext(ThemeContext);
 
+  const [diets, setDiets] = useState([]);
 
-  //I put some examples in the state so the testing is easier
-  const [diets, setDiets] = useState([{id:1, text:"Breakfast", calories: 1000, date:"Fri 2024-07-19"},
-    {id:2, text:"Lunch", calories: 700, date:"Sat 2024-07-20"}
-  ]);
-  
-    const renderItem = (items) => {
-      return <ItemsList items={items} route={props.route} />;
+  useEffect(() => {
+    const unsubscribe = onSnapshot(collection(database, "diets"), (querySnapshot) => {
+      const diet = [];
+      querySnapshot.forEach((doc) => {
+        diet.push({...doc.data(), id: doc.id}); //spread it and add id(key-value)
+      });
+      setDiets(diet);
+    })
+    return () => {
+      unsubscribe();
     };
+  }, [])
+
+  
+
   
     return (
       <SafeAreaView style={theme==='light'?styles.itemContainer:styles.itemContainerDark}>

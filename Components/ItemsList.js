@@ -44,10 +44,10 @@ function ItemsList({type, data,navigation, route}) {
     )} else {
       return (
         <View style={styles.itemlistline}>
-          <PressableListItem text={item.text} special={item.special} date={item.date} calories={item.calories} pressedFunction={handlePressDietItem}>
-          <Text style={{margin:5,fontWeight:'bold'}}>{item.text}</Text>
+          <PressableListItem text={item.dietName} special={item.special} date={item.dateString} calories={item.calories} pressedFunction={handlePressDietItem}>
+          <Text style={{margin:5,fontWeight:'bold'}}>{item.dietName}</Text>
           <Text style={{margin:5}}>{item.special?<FontAwesome name="exclamation-triangle" size={24} color="black" />:" "}</Text>
-          <Text style={{margin:5, backgroundColor:'white',padding:3}}>{item.date}</Text>
+          <Text style={{margin:5, backgroundColor:'white',padding:3}}>{item.dateString}</Text>
           <Text style={{margin:5, backgroundColor:'white', padding:3}}>{item.calories}</Text>
           </PressableListItem>
           </View>
