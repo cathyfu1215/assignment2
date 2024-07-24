@@ -6,6 +6,8 @@ import styles from '../styleHelper.js';
 import PressableButton from '../Components/PressableButton.js';
 import { useEffect } from 'react';
 import { Feather } from '@expo/vector-icons';
+import { Alert } from 'react-native';
+import { deleteFromDB } from '../Firebase/fireStoreHelper.js';
 
 function Edit(props) {
   console.log('type', props.route.params.type);
@@ -15,10 +17,47 @@ function Edit(props) {
   function deleteHandler() {
     //console.log("delete entry", props.route.params.data, 'type', props.route.params.type);
     if(props.route.params.type === 'activity'){
-      console.log('delete activity',props.route.params.data.id);
+      //pop up an aleat to confirm the delete, with two buttons: yes and no
+      //if yes, delete the entry from the database
+      //if no, do nothing
+      
+      Alert.alert(
+        // Title
+        'Important',
+        // Message
+        'Are you sure you want to delete this entry?',
+        [
+          // Array of buttons
+          {text: 'NO', onPress: () => console.log('Cancel Pressed'), style: 'cancel'},
+          {text: 'YES', onPress: () => {
+            console.log('OK Pressed'); 
+            console.log('delete activity',props.route.params.data.id);
+            deleteFromDB(props.route.params.data.id, 'activities');
+            props.navigation.goBack();
+          }},
+        ]
+      );
+         
+      
+     
     }
     else{
-      console.log('delete diet',props.route.params.data.id);
+      Alert.alert(
+        // Title
+        'Important',
+        // Message
+        'Are you sure you want to delete this entry?',
+        [
+          // Array of buttons
+          {text: 'NO', onPress: () => console.log('Cancel Pressed'), style: 'cancel'},
+          {text: 'YES', onPress: () => {
+            console.log('OK Pressed'); 
+            console.log('delete diet',props.route.params.data.id);
+            deleteFromDB(props.route.params.data.id, 'diets');
+            props.navigation.goBack();}},
+        ]
+      );
+      
     }
   }
   useEffect(() => {
