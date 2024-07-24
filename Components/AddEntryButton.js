@@ -17,7 +17,7 @@ function AddEntryButton(props) {
 
   return (
     <View>
-        <PressableButton pressedFunction={handleAddEntry}>
+        <PressableButton pressedFunction={handleAddEntry} >
           <Text style={styles.buttonText}>{props.name}</Text>
         </PressableButton>
 

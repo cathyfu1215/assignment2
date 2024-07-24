@@ -11,11 +11,9 @@ import { database } from '../Firebase/firebaseSetup.js';
 
 
 function Activities(props) {
-    // I put some examples in the state so the testing is easier
+    
 
     const { theme, toggleTheme } = useContext(ThemeContext);
-
-    //console.log('props in activities page',props);
     const [activities, setActivities] = useState([]);
 
     useEffect(() => {

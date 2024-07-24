@@ -50,7 +50,8 @@ function Home() {
         component={Diet}
         options={({ navigation,route  }) => ({
           tabBarButton: (props) => <MyTabButton {...props} navigation={navigation} name="Diet" logo={<Ionicons name="fast-food-outline" size={24} color="black" />}/>,
-          headerRight:()=> {return  <AddEntryButton type="AddADietEntry" name={<View style={styles.addEntryView}>
+          headerRight:()=> {return  <AddEntryButton type="AddADietEntry"
+           name={<View style={styles.addEntryView}>
           <FontAwesome6 name="plus" size={24} color="black" />
           <Ionicons name="fast-food-outline" size={24} color="black" />
           </View>} navigation= {navigation} route={route} />},

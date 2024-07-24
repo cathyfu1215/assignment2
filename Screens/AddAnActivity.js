@@ -33,7 +33,6 @@ function AddAnActivity(props) {
   If there are, we will use them to populate the fields.
   */
 
- // console.log('AddAnActivity props.route.params:', props.route.params);
   
   /* below are code for the activity dropdown picker */
   const [open, setOpen] = useState(false);
@@ -75,7 +74,6 @@ function AddAnActivity(props) {
 
   /* below are code for the save and cancel buttons */
   const handleSave = () => {
-    //console.log('save button pressed');
     // validate the three inputs
     if(activityName == null){
       alert('Please select an activity');
@@ -98,12 +96,10 @@ function AddAnActivity(props) {
       else{
         special = false;
       }
-      //console.log('activity added:',activityName, duration,date,special);
       writeToDB({activityName, duration, date, special},'activities');
       props.navigation.goBack();
     }
     else{// this is an edit to existing activity
-      //console.log('edit activity:',activityName, duration,date);
 
       Alert.alert(
         // Title
@@ -129,7 +125,6 @@ function AddAnActivity(props) {
   
 
   const handleCancel = () => {
-    //console.log('cancel button pressed');
     props.navigation.goBack();
   }
 
