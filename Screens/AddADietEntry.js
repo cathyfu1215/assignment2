@@ -86,7 +86,7 @@ function AddADietEntry(props) {
       
       if(!props.route.params.data){ // this is a new diet
       // if the diet is special, save it with a field 'special' set to true
-      if(calories>500){
+      if(calories>800){
         special = true;
       }
       else{
