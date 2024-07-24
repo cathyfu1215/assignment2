@@ -89,14 +89,14 @@ function AddAnActivity(props) {
       // if the activity is special, save it with a field 'special' set to true
       if(duration>60){
         if(activityName === 'Running' || activityName === 'Weights'){
-         activitySpecial = true;
+         special = true;
         }
       }
       else{
-        activitySpecial = false;
+        special = false;
       }
-      console.log('activity added:',activityName, duration,date,activitySpecial);
-      writeToDB({activityName, duration, date, activitySpecial},'activities');
+      console.log('activity added:',activityName, duration,date,special);
+      writeToDB({activityName, duration, date, special},'activities');
       props.navigation.goBack();
     }
   }

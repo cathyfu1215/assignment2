@@ -82,14 +82,14 @@ function AddADietEntry(props) {
       
       // if the diet is special, save it with a field 'special' set to true
       if(calories>500){
-        dietSpecial = true;
+        special = true;
       }
       else{
-        dietSpecial = false;
+        special = false;
       }
 
-      console.log('diet added:' ,dietName, calories,date,dietSpecial);
-      writeToDB({dietName,calories,date,dietSpecial},'diets');
+      console.log('diet added:' ,dietName, calories,date,special);
+      writeToDB({dietName,calories,date,special},'diets');
       props.navigation.goBack();
     }
   }
