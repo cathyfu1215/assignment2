@@ -10,6 +10,7 @@ function PressableListItem(props) {
             styles.itemlistline,
             { backgroundColor: pressed ? 'yellow' : styles.itemlistline.backgroundColor }
           ]}
+          android_ripple={{color: 'yellow'}}
         onPress={props.pressedFunction} >
         {props.children}
         </Pressable>

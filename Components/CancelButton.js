@@ -9,6 +9,7 @@ function CancelButton(props) {
       styles.cancelButton,
       { backgroundColor: pressed ? 'yellow' : styles.cancelButton.backgroundColor }
     ]}
+    android_ripple={{color: 'yellow'}}
     
     onPress={props.handleCancel}>
         <Text style={styles.cancelButtonText}>Cancel</Text>

@@ -10,7 +10,9 @@ function MyTabButton(props) {
     <Pressable onPress={()=>props.navigation.navigate(props.name)
     } style={({ pressed }) => [
       { backgroundColor: pressed ? 'yellow' : null }]
-    }>
+    }
+    android_ripple={{color: 'yellow'}}
+    >
       <View style={styles.tabButtonContainer}>
           <View>{props.logo}</View>
           <View><Text>{props.name}</Text></View>

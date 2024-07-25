@@ -9,6 +9,7 @@ function SaveButton(props) {
      styles.saveButton,
      { backgroundColor: pressed ? 'yellow' : styles.saveButton.backgroundColor }
    ]}
+   android_ripple={{color: 'yellow'}}
    
    onPress={props.handleSave}>
         <Text style={styles.cancelButtonText}>Save</Text>
