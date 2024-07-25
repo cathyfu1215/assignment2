@@ -8,7 +8,7 @@ import { FontAwesome5 } from '@expo/vector-icons';
 import { Feather } from '@expo/vector-icons';
 import { Ionicons } from '@expo/vector-icons';
 import AddEntryButton from '../Components/AddEntryButton.js';
-import { View } from 'react-native';
+import { View,Text } from 'react-native';
 import styles from '../styleHelper.js';
 import { FontAwesome6 } from '@expo/vector-icons';
 import { useContext } from 'react';
@@ -42,6 +42,7 @@ function Home() {
           name={<View style={styles.addEntryView}>
           <FontAwesome6 name="plus" size={24} color="black" />
           <FontAwesome5 name="running" size={24} color="black" />
+          {/* <Text>add activities</Text> */}
         </View>} navigation= {navigation} route={route} />}
         })}
       />
