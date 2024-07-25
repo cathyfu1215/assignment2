@@ -5,7 +5,10 @@ import styles from '../styleHelper.js';
 
 function PressableButton({children, pressedFunction}) {
   return (
-    <Pressable onPress={pressedFunction} style={styles.button}>
+    <Pressable onPress={pressedFunction} style={({ pressed }) => [
+      styles.button,
+      { backgroundColor: pressed ? 'yellow' : styles.button.backgroundColor }
+    ]}>
         <View><Text style={styles.buttonText}>{children}</Text></View>
     </Pressable>
   )

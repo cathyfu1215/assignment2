@@ -6,7 +6,11 @@ import styles from '../styleHelper.js';
 function PressableListItem(props) {
     
     return (
-        <Pressable style ={styles.itemlistline} onPress={props.pressedFunction} >
+        <Pressable style={({ pressed }) => [
+            styles.itemlistline,
+            { backgroundColor: pressed ? 'yellow' : styles.itemlistline.backgroundColor }
+          ]}
+        onPress={props.pressedFunction} >
         {props.children}
         </Pressable>
     )

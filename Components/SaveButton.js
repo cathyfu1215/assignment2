@@ -4,7 +4,13 @@ import styles from '../styleHelper.js';
 
 function SaveButton(props) {
   return (
-   <Pressable style={styles.saveButton} onPress={props.handleSave}>
+   <Pressable 
+   style={({ pressed }) => [
+     styles.saveButton,
+     { backgroundColor: pressed ? 'yellow' : styles.saveButton.backgroundColor }
+   ]}
+   
+   onPress={props.handleSave}>
         <Text style={styles.cancelButtonText}>Save</Text>
    </Pressable>);
   

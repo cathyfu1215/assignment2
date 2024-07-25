@@ -7,7 +7,10 @@ import { Pressable} from 'react-native'
 function MyTabButton(props) {
   //console.log('props received by tab button are:', props);
   return (
-    <Pressable onPress={()=>props.navigation.navigate(props.name)}>
+    <Pressable onPress={()=>props.navigation.navigate(props.name)
+    } style={({ pressed }) => [
+      { backgroundColor: pressed ? 'yellow' : null }]
+    }>
       <View style={styles.tabButtonContainer}>
           <View>{props.logo}</View>
           <View><Text>{props.name}</Text></View>

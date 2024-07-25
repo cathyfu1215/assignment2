@@ -4,7 +4,13 @@ import styles from '../styleHelper.js';
 
 function CancelButton(props) {
   return (
-    <Pressable style={styles.cancelButton} onPress={props.handleCancel}>
+    <Pressable 
+    style={({ pressed }) => [
+      styles.cancelButton,
+      { backgroundColor: pressed ? 'yellow' : styles.cancelButton.backgroundColor }
+    ]}
+    
+    onPress={props.handleCancel}>
         <Text style={styles.cancelButtonText}>Cancel</Text>
    </Pressable>);
   
