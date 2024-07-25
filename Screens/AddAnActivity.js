@@ -111,7 +111,18 @@ function AddAnActivity(props) {
           {text: 'NO', onPress: () => console.log('Cancel Pressed'), style: 'cancel'},
           {text: 'YES', onPress: () => {
             
-            updateDB(props.route.params.data.id, 'activities',{activityName, duration, date, special:(props.route.params.data.special &&isChecked)?false:props.route.params.data.special});
+            
+            if(isChecked){
+              updateDB(props.route.params.data.id, 'activities',{activityName, duration, date, special:false});
+
+            }
+            else{
+              shouldBeSpecial = ((duration>60 && activityName==='Running') ||(duration>60 && activityName==='Weights'))?true:false;
+              updateDB(props.route.params.data.id, 'activities',{activityName, duration, date, special:shouldBeSpecial});
+            }
+            
+            
+            
             props.navigation.goBack();
           }},
         ]

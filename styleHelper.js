@@ -45,10 +45,11 @@ export default styles = StyleSheet.create({
       margin: 2,
       backgroundColor: 'lightgrey',
       borderRadius: 5,
-      textAlign: 'center',
+      textAlign: 'spread',
       fontWeight: 'bold',
       justifyContent: 'space-between',
-      alignContent: 'center',
+      //justifyContent: 'spread',
+      alignContent: 'spread',
     },
 
     /* light and dark theme */

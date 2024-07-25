@@ -109,9 +109,16 @@ function AddADietEntry(props) {
           // Array of buttons
           {text: 'NO', onPress: () => console.log('Cancel Pressed'), style: 'cancel'},
           {text: 'YES', onPress: () => {
-            // console.log('OK Pressed'); 
-            // console.log('delete diet',props.route.params.data.id);
-            updateDB(props.route.params.data.id, 'diets',{dietName, calories, date, special:(props.route.params.data.special &&isChecked)?false:props.route.params.data.special});
+           
+            // updateDB(props.route.params.data.id, 'diets',{dietName, calories, date, special:(props.route.params.data.special &&isChecked)?false:props.route.params.data.special});
+            
+            if(isChecked){
+              updateDB(props.route.params.data.id, 'diets',{dietName, calories, date, special:false});
+            }
+            else{
+              updateDB(props.route.params.data.id, 'diets',{dietName, calories, date, special: calories>800?true:false});
+            }
+            
             props.navigation.goBack();}},
         ]
       );
