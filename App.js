@@ -1,20 +1,42 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
 
+import React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import AddAnActivity from './Screens/AddAnActivity.js';
+import AddADietEntry from './Screens/AddADietEntry.js';
+import Edit from './Screens/Edit.js';
+import Home from './Screens/Home.js';
+import { ThemeProvider } from './Components/ThemeContext.js';
+
+
+
+const Stack = createNativeStackNavigator();
 export default function App() {
+
+  
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <ThemeProvider>
+    <NavigationContainer>
+     <Stack.Navigator initialRouteName='Home'
+     screenOptions={{
+      tabBarStyle: {
+        backgroundColor: 'lightblue', 
+      },
+      headerStyle: {
+        backgroundColor:'lightblue',
+      },}}
+     >
+      <Stack.Screen name="Home" component={Home}
+       options={{headerShown: false}}/>
+
+      <Stack.Screen name="AddAnActivity" component={AddAnActivity}/>
+      <Stack.Screen name="AddADietEntry" component={AddADietEntry}/>
+      <Stack.Screen name="Edit" component={Edit} />
+    
+                                             
+    </Stack.Navigator>
+    </NavigationContainer>
+    </ThemeProvider>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
