@@ -154,7 +154,7 @@ function AddAnActivity(props) {
     <Text style={styles.addEntryText}>Duration (min) *</Text>
     <TextInput style={styles.textInput} value={durationText} onChangeText={(text)=>{setDurationText(text)}} onBlur={()=>handleDurationChange(durationText)}/>
     <Text style={styles.addEntryText}>Date *</Text>
-    <TextInput style={styles.textInput} editable={false} value={date.toDateString()} onPressIn={()=>setShow(!show)}/>
+    <TextInput style={styles.textInput}  value={date.toDateString()} onPressIn={()=>setShow(!show)}/>
     <View>
       {show && (
         <DateTimePicker

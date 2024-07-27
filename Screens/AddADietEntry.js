@@ -140,7 +140,7 @@ function AddADietEntry(props) {
     <Text style={styles.addEntryText}>Calories *</Text>
     <TextInput style={styles.textInput} value={caloriesText} onChangeText={(text)=>{setCaloriesText(text)}} onBlur={()=>handleCaloriesChange(caloriesText)}/>
     <Text style={styles.addEntryText}>Date *</Text>
-    <TextInput style={styles.textInput} editable={false} value={date.toDateString()} onPressIn={()=>setShow(!show)}/>
+    <TextInput style={styles.textInput} value={date.toDateString()} onPressIn={()=>setShow(!show)}/>
     <View>
       {show && (
         <DateTimePicker
